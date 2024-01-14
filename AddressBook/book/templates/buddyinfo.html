@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>List budies </title>
+</head>
+<body>
+    <h1>Buddies</h1>
+    <ol>
+        {% for address_book in address_books %}
+          <li>
+            <strong>{{ address_book.name }}</strong>
+            <ul>
+              {% for buddy_info in address_book.buddies.all %}
+                <li>{{ buddy_info.name }}</li>
+              {% endfor %}
+            </ul>
+          </li>
+        {% endfor %}
+      </ol>
+    
+</body>
+</html>
