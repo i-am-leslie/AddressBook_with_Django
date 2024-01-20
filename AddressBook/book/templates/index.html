@@ -6,14 +6,20 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Add AddressBook</h1>
-    {% if submitted %}
-        <p>Form submitted successfully!</p>
-    {% endif %}
-    <form method="POST"  action=""  enctype="multipart/form-data">
-        {% csrf_token %}
-        {{form}}
-       <button>Submit</button> </form>
+    <div>
+        <h1>Add AddressBook</h1>
+        {% if submitted %}
+            <p>Form submitted successfully!</p>
+        {% endif %}
+        <form method="POST"  action=""  enctype="multipart/form-data">
+            {% csrf_token %}
+            {{form}}
+        <button>Submit</button> </form>
+    </div>
+
+    <a href="{% url 'buddies'%}">List of Address book</a>
+
+
     
 </body>
 </html>

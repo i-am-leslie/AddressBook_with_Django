@@ -13,7 +13,7 @@ class BuddyInfo(models.Model):
     name=models.CharField(max_length=255)
     Address=models.TextField()
     Phone_Number=models.IntegerField()
-    Addres_book= models.ForeignKey(AddressBook,related_name='BuddyInfo',on_delete=models.CASCADE)
+    Address_book= models.ForeignKey(AddressBook,related_name='BuddyInfo',on_delete=models.CASCADE)
 
     def __str__(self):
         return self.name
