@@ -1,44 +1,17 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <!-- ... other head elements ... -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/css/select2.min.css" rel="stylesheet" />
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.13/js/select2.min.js"></script>
-  </head>
-<body>
-    <h1>List of Address Book</h1>
-    <ol>
-        {% for address_book in address_books %}
-          <li>
-            <strong>{{ address_book.name }}</strong>
-            <ul>
-              {% for buddy_info in address_book.buddies.all %}
-                <li>{{ buddy_info.name }}</li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% endfor %}
-      </ol>
-      <div>
-        <h1>Add buddy info to Address Book</h1>
-        <div>
-          {% if submitted %}
-              <p>Form submitted successfully!</p>
-          {% endif %}
-          <form method="POST"  action=""  enctype="multipart/form-data">
-              {% csrf_token %}
-              {{form}}
-          <button>Submit</button> </form>
-      </div>
+{% extends 'base.html' %}
 
-      </div>
+{% block content %}
+<div>
+    <h1>Add AddressBook</h1>
+    {% if submitted %}
+        <p>Form submitted successfully!</p>
+    {% endif %}
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
 
-      <script>
-        $(document).ready(function() {
-          $("#id_addressBook").select2();
-        });
-      </script>
-    
-</body>
-</html>
+<a href="{% url 'buddies' %}">List of Address Books</a>
+{% endblock %}

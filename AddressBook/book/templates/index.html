@@ -1,25 +1,18 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <div>
-        <h1>Add AddressBook</h1>
-        {% if submitted %}
-            <p>Form submitted successfully!</p>
-        {% endif %}
-        <form method="POST"  action=""  enctype="multipart/form-data">
-            {% csrf_token %}
-            {{form}}
-        <button>Submit</button> </form>
-    </div>
 
-    <a href="{% url 'buddies'%}">List of Address book</a>
+{% extends 'base.html' %}
 
+{% block content %}
+<div>
+    <h1>Add Address Book</h1>
+    {% if submitted %}
+        <p>Form submitted successfully!</p>
+    {% endif %}
+    <form method="POST" action="" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form }}
+        <button type="submit">Submit</button>
+    </form>
+</div>
 
-    
-</body>
-</html>
+<a href="{% url 'buddies' %}">List of Address Books</a>
+{% endblock %}

@@ -49,8 +49,7 @@ def buddies(request):
 
      # Retrieve all address books
     address_books = AddressBook.objects.all()
-    buddies= BuddyInfo.objects.all()
-    context={'address_books': address_books, buddies:'buddies', 'form': form, 'submitted': submitted}
+    context={'address_books': address_books,'form': form, 'submitted': submitted}
 
     # You can pass address_books to your template for iteration
 
