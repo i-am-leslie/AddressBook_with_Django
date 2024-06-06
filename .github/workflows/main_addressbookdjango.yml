@@ -32,7 +32,7 @@ jobs:
 
       - name: Run collectstatic
         run: python manage.py collectstatic  --noinput
-        working-directory: AddressBook_with_Django/AddressBook
+        working-directory: AddressBook
         
       # Optional: Add step to run tests here (PyTest, Django test suites, etc.)
 
