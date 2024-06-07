@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-bw!@kwe9xcdu&3j98lp64@l=$#mh)@9b5#nchl!g7w*5z(4^v_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['addressbookdjango.azurewebsites.net']
 
 
 # Application definition
@@ -118,6 +118,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
 STATIC_URL = "static/"
 
 STATICFILES_DIRS = [
@@ -125,6 +126,8 @@ STATICFILES_DIRS = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+STATIC_URL = '/AddressBook/static/'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
