@@ -11,7 +11,7 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-settings_module = 'AddressBook.deployment' if 'WEBSITE_HOSTNAME' in os.environ else 'AddressBook.settings'
+settings_module = 'AddressBook.deployment' if 'addressbookdjango.azurewebsites.net' in os.environ else 'AddressBook.settings'
 
 os.environ.setdefault("DJANGO_SETTINGS_MODULE", settings_module)
 
