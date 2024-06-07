@@ -3,7 +3,8 @@ from .settings import *
 from .settings import BASE_DIR
 
 ALLOWED_HOSTS = [os.environ['addressbookdjango.azurewebsites.net']]
-CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['addressbookdjango.azurewebsites.net']]
+# CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['addressbookdjango.azurewebsites.net']]
+CSRF_TRUSTED_ORIGINS = ['https://addressbookdjango.azurewebsites.net']
 DEBUG = False
 
 
