@@ -27,7 +27,9 @@ SECRET_KEY = "django-insecure-bw!@kwe9xcdu&3j98lp64@l=$#mh)@9b5#nchl!g7w*5z(4^v_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['addressbookdjango.azurewebsites.net']
+ALLOWED_HOSTS = ['addressbookdjango.azurewebsites.net', 'localhost']
+
+
 
 
 # Application definition
