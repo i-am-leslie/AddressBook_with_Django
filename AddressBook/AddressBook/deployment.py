@@ -2,9 +2,9 @@ import os
 from .settings import *
 from .settings import BASE_DIR
 
-ALLOWED_HOSTS = [os.environ['addressbookdjango.azurewebsites.net']]
+ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']]
 # CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['addressbookdjango.azurewebsites.net']]
-CSRF_TRUSTED_ORIGINS = ['https://addressbookdjango.azurewebsites.net']
+CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['WEBSITE_HOSTNAME']]
 DEBUG = False
 
 
@@ -20,3 +20,11 @@ MIDDLEWARE = [
 ]
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.sqlite3",
+        "NAME": BASE_DIR / "db.sqlite3",
+    }
+}

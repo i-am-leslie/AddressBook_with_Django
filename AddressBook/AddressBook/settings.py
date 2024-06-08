@@ -27,7 +27,7 @@ SECRET_KEY = "django-insecure-bw!@kwe9xcdu&3j98lp64@l=$#mh)@9b5#nchl!g7w*5z(4^v_
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 
@@ -120,13 +120,17 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage' 
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
 STATIC_URL = "static/"
 
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, "AddressBook/static"),
-]
+STATICFILES_DIRS = (str(BASE_DIR.joinpath('AddressBook/static')),)
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+# STATICFILES_DIRS = [
+#     os.path.join(BASE_DIR, "AddressBook/static"),
+# ]
+
 
 STATIC_URL = '/AddressBook/static/'
 
