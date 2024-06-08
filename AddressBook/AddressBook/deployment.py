@@ -2,6 +2,9 @@ import os
 from .settings import *
 from .settings import BASE_DIR
 
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = "django-insecure-bw!@kwe9xcdu&3j98lp64@l=$#mh)@9b5#nchl!g7w*5z(4^v_"
 ALLOWED_HOSTS = [os.environ['WEBSITE_HOSTNAME']]
 # CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['addressbookdjango.azurewebsites.net']]
 CSRF_TRUSTED_ORIGINS = ['https://' + os.environ['WEBSITE_HOSTNAME']]
