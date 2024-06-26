@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 """
 
 from pathlib import Path
+from os.path import join
 
 import os 
 
@@ -49,6 +50,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
+    "django.middleware.locale.LocaleMiddleware",
     "django.middleware.common.CommonMiddleware",
     "django.middleware.csrf.CsrfViewMiddleware",
     "django.contrib.auth.middleware.AuthenticationMiddleware",
@@ -72,6 +74,19 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+LANGUAGES = (
+    ('en-us', 'English (US)'),
+    ('de', 'Deutsche'),
+    ('ar', 'عربى'),
+)
+
+# Default locale
+LANGUAGE_CODE = 'en-us'
+
+LOCALE_PATHS = [
+    join(BASE_DIR, 'django_i18n_example', 'locale'),
 ]
 
 WSGI_APPLICATION = "AddressBook.wsgi.application"
@@ -117,6 +132,13 @@ TIME_ZONE = "UTC"
 USE_I18N = True
 
 USE_TZ = True
+
+# Turned on by default
+USE_I18N = True
+
+# Turned on by default
+USE_L10N = True
+
 
 
 # Static files (CSS, JavaScript, Images)

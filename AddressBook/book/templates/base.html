@@ -7,7 +7,12 @@
 </head>
 <body>
     {% block navbar %}
-    <h1>Welcome to AddressBook</h1>
+    {% load i18n %}
+
+    <h1>{% trans "Welcome to My Site" %}</h1>
+    <p>{% blocktrans %}This is a demonstration of Django's translation features.{% endblocktrans %}</p>
+
+    <h1>{% trans "Welcome to AddressBook" %}</h1>
     <ul class="Nav">
         <li><a href="">Main Page</a></li>
         <li><a href="">Add Buudies</a></li>
