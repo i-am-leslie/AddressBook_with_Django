@@ -1,3 +1,4 @@
+{% load i18n %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,8 +8,12 @@
 </head>
 <body>
     {% block navbar %}
-    {% load i18n %}
+    <p>
+        <a href="/en-us/"> <button>English</button></a>
+        <a href="/de/"> <button>German</button></a>
 
+    </p>
+    
     <h1>{% trans "Welcome to My Site" %}</h1>
     <p>{% blocktrans %}This is a demonstration of Django's translation features.{% endblocktrans %}</p>
 
