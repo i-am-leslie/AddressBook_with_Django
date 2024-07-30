@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-26 05:11+0000\n"
+"POT-Creation-Date: 2024-06-26 06:02+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -18,15 +18,15 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n != 1);\n"
 
-#: book/templates/base.html:12
+#: book/templates/base.html:17
 msgid "Welcome to My Site"
 msgstr "Willkommen auf meiner Webseite"
 
-#: book/templates/base.html:13
+#: book/templates/base.html:18
 msgid "This is a demonstration of Django's translation features."
 msgstr "Dies ist eine Demonstration der Übersetzungsfunktionen von Django."
 
-#: book/templates/base.html:15
+#: book/templates/base.html:20
 msgid "Welcome to AddressBook"
 msgstr "Wwllll"
 
@@ -39,3 +39,7 @@ msgstr "Adresboek Toevoegen"
 #: book/templates/buddyinfo.html:8
 msgid "Form submitted successfully! "
 msgstr "Formular erfolgreich eingereicht!"
+
+#: book/templates/buddyinfo.html:20
+msgid "This is a test for the website translation, hopefully it works"
+msgstr "Dies ist ein Test für die Website-Übersetzung, hoffentlich funktioniert es"
