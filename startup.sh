@@ -4,7 +4,8 @@
 apt-get update && apt-get install -y gettext
 
 # Compile the text 
-django-admin compilemessages
+django-admin compilemessages 
+
 
 # Start the web app using gunicorn
 # Replace 'AddressBook.wsgi' with your project's WSGI module path
