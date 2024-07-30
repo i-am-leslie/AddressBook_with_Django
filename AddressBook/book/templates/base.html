@@ -8,11 +8,19 @@
 </head>
 <body>
     {% block navbar %}
-    <p>
-        <a href="/en-us/"> <button>English</button></a>
-        <a href="/de/"> <button>German</button></a>
-
-    </p>
+    <form id="languageForm" action="{% url 'set_language' %}" method="post" >
+        {% csrf_token %}
+        <input name="next" type="hidden" value="{{ request.path }}" >
+        <select name="language" onchange="this.form.submit();">
+            {% get_current_language as LANGUAGE_CODE %}
+            {% get_available_languages as LANGUAGES %}
+            {% for lang in LANGUAGES %}
+                <option value="{{ lang.0 }}" {% if lang.0 == LANGUAGE_CODE %}selected{% endif %}>
+                    {{ lang.1 }}
+                </option>
+            {% endfor %}
+        </select>
+    </form>
     
     <h1>{% trans "Welcome to My Site" %}</h1>
     <p>{% blocktrans %}This is a demonstration of Django's translation features.{% endblocktrans %}</p>
