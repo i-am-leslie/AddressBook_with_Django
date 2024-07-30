@@ -66,6 +66,10 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
+      - name : install gettext 
+        run: apt-get install gettext 
+      
+
       
       - name: Login to Azure
         uses: azure/login@v1
