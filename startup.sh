@@ -3,8 +3,6 @@
 # Install gettext
 apt-get update && apt-get install -y gettext
 
-# Compile the text 
-django-admin compilemessages 
 
 
 # Start the web app using gunicorn
