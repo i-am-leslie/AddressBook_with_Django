@@ -68,7 +68,7 @@ jobs:
 
       - name: Upload startup script
         run: |
-          mv startup.sh /home/site/wwwroot/
+          mv ./startup.sh /home/site/wwwroot/
       
 
       
