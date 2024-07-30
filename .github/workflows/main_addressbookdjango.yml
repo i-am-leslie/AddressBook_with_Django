@@ -66,11 +66,6 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      # - name: Upload startup script
-      #   run: |
-      #     mv ./startup.sh /home/site/wwwroot/
-      
-
       
       - name: Login to Azure
         uses: azure/login@v1
