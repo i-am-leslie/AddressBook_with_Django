@@ -19,9 +19,14 @@ from django.urls import path
 from book.views import index,buddies
 from django.conf.urls.i18n import i18n_patterns
 from django.urls import path, include
+from django.conf.urls.i18n import i18n_patterns
 
+urlpatterns = [
+    # Needed for locale change
+    path('i18n/', include('django.conf.urls.i18n')),
+]
 
-urlpatterns = i18n_patterns (
+urlpatterns += i18n_patterns(
     path("admin/", admin.site.urls),
     path("", index,name='index'),
     path("buddies", buddies,name='buddies'),
