@@ -66,10 +66,9 @@ jobs:
       - name: Unzip artifact for deployment
         run: unzip release.zip
 
-      - name: Update package list and install gettext
+      - name: Upload startup script
         run: |
-          sudo apt-get update
-          sudo apt-get install -y gettext
+          mv startup.sh /home/site/wwwroot/
       
 
       
