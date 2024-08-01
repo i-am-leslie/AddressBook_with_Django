@@ -1,4 +1,4 @@
-# !/bin/bash
+#!/bin/bash
 
 # Install gettext
 apt-get update && apt-get install -y gettext
