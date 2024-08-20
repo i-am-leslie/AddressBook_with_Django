@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RabbitMQ Messaging</title>
+    <script>
+        function sendMessage() {
+            var message = document.getElementById("message").value;
+            fetch("{% url 'send_message' %}", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/x-www-form-urlencoded",
+                    "X-CSRFToken": "{{ csrf_token }}"
+                },
+                body: "message=" + encodeURIComponent(message)
+            })
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("status").innerText = data.status;
+                document.getElementById("message").value = "";
+            });
+        }
+
+        let receivedMessages = []; // Array to track received messages
+
+function receiveMessage() {
+    fetch("{% url 'receive_message' %}")
+        .then(response => response.json())
+        .then(data => {
+            const messageList = document.getElementById("messages");
+
+            data.messages.forEach(msg => {
+                // Check if the message is already in the list
+                if (!receivedMessages.includes(msg)) {
+                    // Add the new message to the array
+                    receivedMessages.push(msg);
+
+                    // Create a new list item for the new message
+                    const li = document.createElement("li");
+                    li.innerText = msg;
+
+                    // Append the new list item to the message list
+                    messageList.appendChild(li);
+
+                    // Set a timeout to remove the message after 2 minutes
+                    setTimeout(() => {
+                        messageList.removeChild(li);
+                        // Also remove it from the receivedMessages array
+                        receivedMessages = receivedMessages.filter(m => m !== msg);
+                    }, 120000); // 120000 milliseconds = 2 minutes
+                }
+            });
+        });
+}
+
+// Poll every 2 minutes for new messages
+setInterval(receiveMessage, 120000);
+
+
+        setInterval(receiveMessage, 2000); // Poll every 2 seconds for new messages
+    </script>
+</head>
+<body>
+    <h1>RabbitMQ Messaging</h1>
+    <input type="text" id="message" placeholder="Enter your message">
+    <button onclick="sendMessage()">Send Message</button>
+    <p id="status"></p>
+
+    <h2>Received Messages:</h2>
+    <ul id="messages"></ul>
+</body>
+</html>

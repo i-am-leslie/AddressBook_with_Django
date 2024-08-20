@@ -55,6 +55,9 @@ def buddies(request):
 
     return render(request, "buddyinfo.html", context)
 
+def message_page(request):
+    return render(request, 'message.html')
+
 
 
 
