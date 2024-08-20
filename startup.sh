@@ -9,7 +9,6 @@ django-admin compilemessages
 
 
 # Rabbitmq installation 
-#!/bin/sh
 
 sudo apt-get install curl gnupg apt-transport-https -y
 
@@ -54,6 +53,12 @@ sudo apt-get install -y erlang-base \
 ## Install rabbitmq-server and its dependencies
 sudo apt-get install rabbitmq-server -y --fix-missing
 
+
+# Enable RabbitMQ service to start on boot
+sudo systemctl enable rabbitmq-server
+
+# Start RabbitMQ service immediately
+sudo systemctl start rabbitmq-server
 
 
 
