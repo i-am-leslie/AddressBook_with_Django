@@ -12,7 +12,43 @@
         {{ form }}
         <button type="submit">Submit</button>
     </form>
+    <h1>Notifications</h1>
+    <p id="messages"></p>
 </div>
 
 <a href="{% url 'buddies' %}">List of Address Books</a>
 {% endblock %}
+<script>
+    function receiveMessage() {
+        fetch("{% url 'receive_message' %}")
+            .then(response => response.json())
+            .then(data => {
+                const messageList = document.getElementById("messages");
+
+                data.messages.forEach(msg => {
+                    // Check if the message is already in the list
+                    if (!receivedMessages.includes(msg)) {
+                        // Add the new message to the array
+                        receivedMessages.push(msg);
+
+                        // Create a new list item for the new message
+                        const li = document.createElement("li");
+                        li.innerText = msg;
+
+                        // Append the new list item to the message list
+                        messageList.appendChild(li);
+
+                        // Set a timeout to remove the message after 2 minutes
+                        setTimeout(() => {
+                            messageList.removeChild(li);
+                            // Also remove it from the receivedMessages array
+                            receivedMessages = receivedMessages.filter(m => m !== msg);
+                        }, 120000); // 120000 milliseconds = 2 minutes
+                    }
+                });
+            });
+}
+
+        setInterval(receiveMessage, 2000); // Poll every 2 seconds for new messages
+
+</script>
